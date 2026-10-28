@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#07110d">
+  <meta name="description" content="FreeAI — a thoughtful AI assistant, free to use with transparent model limits.">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="FreeAI">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>FreeAI — Intelligence for everyone</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="/" aria-label="FreeAI home"><span class="brand-mark">✳</span><span>Free<span class="silver">AI</span></span></a>
+      <button class="new-chat" id="new-chat"><span>＋</span> New chat</button>
+      <div class="history-label">RECENT</div>
+      <nav id="history" class="history" aria-label="Conversation history"></nav>
+      <div class="sidebar-bottom">
+        <div class="model-chip"><span class="status-dot"></span><span id="model-label">Free model</span></div>
+        <p>Useful intelligence.<br><span class="muted">Without the nonsense.</span></p>
+        <button class="subtle-button" id="clear-history">Clear local history</button>
+      </div>
+    </aside>
+    <main class="main-panel">
+      <header class="topbar">
+        <button class="icon-button menu-button" id="menu-toggle" aria-label="Toggle sidebar">☰</button>
+        <div class="model-select-wrap"><span class="eyebrow">ASSISTANT</span><span class="model-title">FreeAI <span class="model-badge">FREE</span></span></div>
+        <button class="icon-button" id="new-chat-top" aria-label="Start a new chat" title="New chat">＋</button>
+      </header>
+      <section class="conversation" id="conversation" aria-live="polite">
+        <div class="welcome" id="welcome">
+          <div class="welcome-orb"><span>✳</span></div>
+          <p class="eyebrow">A LITTLE MORE INTELLIGENCE. A LOT LESS FRICTION.</p>
+          <h1>What can we <span>figure out</span><br class="desktop-break"> together?</h1>
+          <p class="welcome-copy">Ask a question, explore an idea, write code, or untangle something complicated. Let's get into it.</p>
+          <div class="suggestions">
+            <button class="suggestion" data-prompt="Explain a difficult concept in simple terms, with an example."><span>◈</span><b>Explain something</b><small>Make complex ideas click</small></button>
+            <button class="suggestion" data-prompt="Help me build a clean, accessible React component. Explain the design decisions."><span>⌘</span><b>Build with code</b><small>Think, debug, create</small></button>
+            <button class="suggestion" data-prompt="Help me brainstorm an original project idea and turn it into an actionable plan."><span>✧</span><b>Explore an idea</b><small>From thought to plan</small></button>
+            <button class="suggestion" data-prompt="Help me solve a problem step by step. Ask me for any missing details first."><span>↗</span><b>Solve a problem</b><small>Work through it together</small></button>
+          </div>
+        </div>
+        <div class="messages" id="messages"></div>
+      </section>
+      <footer class="composer-area">
+        <form class="composer" id="chat-form">
+          <textarea id="prompt" rows="1" maxlength="12000" placeholder="Message FreeAI…" aria-label="Message FreeAI"></textarea>
+          <div class="composer-tools"><span class="privacy-note"><span class="lock">◇</span> Guest mode · Saved on this device</span><span class="composer-right"><span class="char-count" id="char-count">0 / 12000</span><button class="send-button" id="send-button" type="submit" aria-label="Send message">↑</button></span></div>
+        </form>
+        <p class="disclaimer">FreeAI can make mistakes. Check important information. Free model availability and limits may change.</p>
+      </footer>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+  <script type="module" src="/app.js"></script>
+</body>
+</html>
