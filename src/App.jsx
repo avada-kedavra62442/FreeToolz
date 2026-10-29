@@ -46,6 +46,6 @@ function usePageInteractions(isDirectory) {
     };
   }, [isDirectory]);
 }
-function HomePage() { usePageInteractions(false); return <div className="app-content" >{parse(homeMarkup)} />; }
-function ToolsPage() { usePageInteractions(true); return <div className="app-content" >{parse(toolsMarkup)} />; }
+function HomePage() { usePageInteractions(false); return <div className="app-content">{parse(homeMarkup)}</div>; }
+function ToolsPage() { usePageInteractions(true); return <div className="app-content">{parse(toolsMarkup)}</div>; }
 export default function App() { const path = window.location.pathname.replace(/\/+$/, '') || '/'; return path === '/tools' ? <ToolsPage /> : <HomePage />; }
