@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import parse from 'html-react-parser';
 import { homeMarkup, toolsMarkup } from './content.js';
 
 function usePageInteractions(isDirectory) {
@@ -45,6 +46,6 @@ function usePageInteractions(isDirectory) {
     };
   }, [isDirectory]);
 }
-function HomePage() { usePageInteractions(false); return <div className="app-content" dangerouslySetInnerHTML={{ __html: homeMarkup }} />; }
-function ToolsPage() { usePageInteractions(true); return <div className="app-content" dangerouslySetInnerHTML={{ __html: toolsMarkup }} />; }
+function HomePage() { usePageInteractions(false); return <div className="app-content" >{parse(homeMarkup)} />; }
+function ToolsPage() { usePageInteractions(true); return <div className="app-content" >{parse(toolsMarkup)} />; }
 export default function App() { const path = window.location.pathname.replace(/\/+$/, '') || '/'; return path === '/tools' ? <ToolsPage /> : <HomePage />; }
